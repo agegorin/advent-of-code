@@ -27,7 +27,6 @@ fn down_to(number: i64) -> (i64, usize) {
 }
 
 pub fn part_one(input: &str) -> Option<usize> {
-
     let mut counter = 0;
 
     input.lines().fold(START_POSITION, |acc, line| {
@@ -41,7 +40,7 @@ pub fn part_one(input: &str) -> Option<usize> {
         if result == 0 {
             counter += 1;
         }
-        return result;
+        result
     });
 
     Some(counter)
@@ -59,7 +58,7 @@ pub fn part_two(input: &str) -> Option<usize> {
             _ => panic!(),
         };
         counter += rounds;
-        return result;
+        result
     });
 
     Some(counter)
@@ -72,12 +71,12 @@ mod tests {
     #[test]
     fn test_part_one() {
         let result = part_one(&advent_of_code::template::read_file("examples", DAY));
-        assert_eq!(result, None);
+        assert_eq!(result, Some(3));
     }
 
     #[test]
     fn test_part_two() {
         let result = part_two(&advent_of_code::template::read_file("examples", DAY));
-        assert_eq!(result, None);
+        assert_eq!(result, Some(6));
     }
 }
